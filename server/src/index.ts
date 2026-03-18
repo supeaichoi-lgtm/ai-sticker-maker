@@ -36,12 +36,12 @@ app.post('/api/sticker', async (req, res) => {
       return;
     }
 
-    const model = String(process.env.OPENAI_IMAGE_MODEL ?? 'gpt-image-1');
+    const model = String(process.env.OPENAI_IMAGE_MODEL ?? 'dall-e-2');
 
     const result = await openai.images.generate({
       model,
       prompt: `스티커 스타일, 단순한 벡터 느낌, 투명 배경처럼 깔끔하게: ${prompt}`,
-      size: '1024x1024',
+      size: '512x512',
     });
 
     const first = result.data?.[0];
