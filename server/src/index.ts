@@ -42,7 +42,7 @@ app.post('/api/sticker', async (req, res) => {
     const result = await openai.images.generate({
       model,
       prompt: `EXACTLY ONE single die-cut sticker of ${prompt}, strictly one item only, front view facing forward, centered, white background, thick white outline, flat vector illustration, no shadow, no text, do not repeat, do not show multiple stickers`,
-      size: '512x512',
+      size: '1024x1024',
     });
 
    const first = result.data?.[0];
