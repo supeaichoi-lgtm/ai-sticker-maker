@@ -44,21 +44,14 @@ app.post('/api/sticker', async (req, res) => {
       size: '512x512',
     });
 
-    const first = result.data?.[0];
-    const b64 =
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (first as any)?.b64_json ??
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (first as any)?.b64 ??
-      null;
-
-    if (!b64) {
+   const first = result.data?.[0];
+    const imageUrl = (first as any)?.url ?? null;
+    if (!imageUrl) {
       res.status(502).json({ error: 'No image returned from OpenAI' });
       return;
     }
-
     res.status(200).json({
-      dataUrl: `data:image/png;base64,${b64}`,
+      dataUrl: imageUrl,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error';
