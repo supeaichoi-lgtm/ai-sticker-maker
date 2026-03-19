@@ -40,7 +40,7 @@ app.post('/api/sticker', async (req, res) => {
 
     const result = await openai.images.generate({
       model,
-      prompt: `cute sticker design, simple vector style, clean white background, thick outline, kawaii illustration: ${prompt}`,
+      prompt: `die-cut sticker, ${prompt}, white background, thick black outline, flat vector illustration, sticker sheet style, no shadow, clean edges, kawaii cute style`,
       size: '512x512',
     });
 
