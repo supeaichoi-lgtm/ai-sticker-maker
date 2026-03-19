@@ -1,3 +1,4 @@
+
 import dotenv from 'dotenv';
 import cors from 'cors';
 import express from 'express';
@@ -40,7 +41,7 @@ app.post('/api/sticker', async (req, res) => {
 
     const result = await openai.images.generate({
       model,
-      prompt: `single sticker design of ${prompt}, front view, facing forward, centered composition, transparent background, thick white outline, flat vector illustration, no shadow, no background, one single item only, die-cut sticker style`,
+      prompt: `EXACTLY ONE single die-cut sticker of ${prompt}, strictly one item only, front view facing forward, centered, white background, thick white outline, flat vector illustration, no shadow, no text, do not repeat, do not show multiple stickers`,
       size: '512x512',
     });
 
